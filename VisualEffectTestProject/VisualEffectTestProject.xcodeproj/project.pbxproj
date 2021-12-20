@@ -11,15 +11,19 @@
 		6342BF602770B96B00ED7BEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF5F2770B96B00ED7BEA /* SceneDelegate.swift */; };
 		6342BF622770B96B00ED7BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF612770B96B00ED7BEA /* ViewController.swift */; };
 		6342BF672770B96C00ED7BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6342BF662770B96C00ED7BEA /* Assets.xcassets */; };
+		CFAB6D194BA113E70C32189D /* libPods-VisualEffectTestProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF2E4066EC1C82A52648966 /* libPods-VisualEffectTestProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BF2E4066EC1C82A52648966 /* libPods-VisualEffectTestProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisualEffectTestProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB4D5DD08388CC7F52B55AC /* Pods-VisualEffectTestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualEffectTestProject.release.xcconfig"; path = "Target Support Files/Pods-VisualEffectTestProject/Pods-VisualEffectTestProject.release.xcconfig"; sourceTree = "<group>"; };
 		6342BF5A2770B96B00ED7BEA /* VisualEffectTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisualEffectTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6342BF5D2770B96B00ED7BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6342BF5F2770B96B00ED7BEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6342BF612770B96B00ED7BEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6342BF662770B96C00ED7BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6342BF6B2770B96C00ED7BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B52007DD2BA99C68373AB8E /* Pods-VisualEffectTestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualEffectTestProject.debug.xcconfig"; path = "Target Support Files/Pods-VisualEffectTestProject/Pods-VisualEffectTestProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAB6D194BA113E70C32189D /* libPods-VisualEffectTestProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				6342BF5C2770B96B00ED7BEA /* VisualEffectTestProject */,
 				6342BF5B2770B96B00ED7BEA /* Products */,
+				CA5366F2CDD86FF313F98D20 /* Pods */,
+				E207D006B45CAB30CB977C38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +68,23 @@
 			path = VisualEffectTestProject;
 			sourceTree = "<group>";
 		};
+		CA5366F2CDD86FF313F98D20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B52007DD2BA99C68373AB8E /* Pods-VisualEffectTestProject.debug.xcconfig */,
+				5AB4D5DD08388CC7F52B55AC /* Pods-VisualEffectTestProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E207D006B45CAB30CB977C38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BF2E4066EC1C82A52648966 /* libPods-VisualEffectTestProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,6 +92,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6342BF6E2770B96C00ED7BEA /* Build configuration list for PBXNativeTarget "VisualEffectTestProject" */;
 			buildPhases = (
+				C14BBFC115F46E7498D125E6 /* [CP] Check Pods Manifest.lock */,
+				63D4D0B42770C0F400A38448 /* SwiftLint */,
 				6342BF562770B96B00ED7BEA /* Sources */,
 				6342BF572770B96B00ED7BEA /* Frameworks */,
 				6342BF582770B96B00ED7BEA /* Resources */,
@@ -124,6 +150,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63D4D0B42770C0F400A38448 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		C14BBFC115F46E7498D125E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VisualEffectTestProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6342BF562770B96B00ED7BEA /* Sources */ = {
@@ -257,6 +326,7 @@
 		};
 		6342BF6F2770B96C00ED7BEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B52007DD2BA99C68373AB8E /* Pods-VisualEffectTestProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -283,6 +353,7 @@
 		};
 		6342BF702770B96C00ED7BEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AB4D5DD08388CC7F52B55AC /* Pods-VisualEffectTestProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
