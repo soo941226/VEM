@@ -11,6 +11,7 @@
 		6342BF602770B96B00ED7BEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF5F2770B96B00ED7BEA /* SceneDelegate.swift */; };
 		6342BF622770B96B00ED7BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF612770B96B00ED7BEA /* ViewController.swift */; };
 		6342BF672770B96C00ED7BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6342BF662770B96C00ED7BEA /* Assets.xcassets */; };
+		63D4D0B82770C29800A38448 /* VisualEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D4D0B72770C29800A38448 /* VisualEffects.swift */; };
 		CFAB6D194BA113E70C32189D /* libPods-VisualEffectTestProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF2E4066EC1C82A52648966 /* libPods-VisualEffectTestProject.a */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		6342BF612770B96B00ED7BEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6342BF662770B96C00ED7BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6342BF6B2770B96C00ED7BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63D4D0B72770C29800A38448 /* VisualEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffects.swift; sourceTree = "<group>"; };
 		8B52007DD2BA99C68373AB8E /* Pods-VisualEffectTestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualEffectTestProject.debug.xcconfig"; path = "Target Support Files/Pods-VisualEffectTestProject/Pods-VisualEffectTestProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +43,7 @@
 		6342BF512770B96B00ED7BEA = {
 			isa = PBXGroup;
 			children = (
+				63D4D0B62770C28D00A38448 /* VisualEffects */,
 				6342BF5C2770B96B00ED7BEA /* VisualEffectTestProject */,
 				6342BF5B2770B96B00ED7BEA /* Products */,
 				CA5366F2CDD86FF313F98D20 /* Pods */,
@@ -66,6 +69,15 @@
 				6342BF6B2770B96C00ED7BEA /* Info.plist */,
 			);
 			path = VisualEffectTestProject;
+			sourceTree = "<group>";
+		};
+		63D4D0B62770C28D00A38448 /* VisualEffects */ = {
+			isa = PBXGroup;
+			children = (
+				63D4D0B72770C29800A38448 /* VisualEffects.swift */,
+			);
+			name = VisualEffects;
+			path = ../VisualEffects;
 			sourceTree = "<group>";
 		};
 		CA5366F2CDD86FF313F98D20 /* Pods */ = {
@@ -201,6 +213,7 @@
 			files = (
 				6342BF622770B96B00ED7BEA /* ViewController.swift in Sources */,
 				6342BF5E2770B96B00ED7BEA /* AppDelegate.swift in Sources */,
+				63D4D0B82770C29800A38448 /* VisualEffects.swift in Sources */,
 				6342BF602770B96B00ED7BEA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
