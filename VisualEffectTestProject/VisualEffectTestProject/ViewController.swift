@@ -16,6 +16,6 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         self.view.backgroundColor = .darkGray
 
-        VisualEffects.snow.manager.ready(for: self.view.layer).run()
+        VisualEffects.aboutParticle.withSnow.ready(for: self.view).run()
     }
 }
