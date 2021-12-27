@@ -9,11 +9,6 @@ import UIKit
 import CoreGraphics
 import QuartzCore
 
-private protocol Effectable {
-    var cells: [CAEmitterCell] { get }
-    var emitterLayer: CAEmitterLayer { get }
-}
-
 enum Particle {
     case withSnow
     func ready(for view: UIView) -> RunableEffect {
@@ -48,6 +43,14 @@ class ParticleEffect: Effect, Effectable {
     func run() {
         background.addSublayer(emitterLayer)
     }
+}
+
+
+
+//MARK: - private things
+private protocol Effectable {
+    var cells: [CAEmitterCell] { get }
+    var emitterLayer: CAEmitterLayer { get }
 }
 
 final private class SnowEffect: ParticleEffect {
