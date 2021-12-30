@@ -23,7 +23,14 @@ enum Particle {
     }
 }
 
-class ParticleEffect: Effect, Effectable {
+//MARK: - Definition about Effectable
+private protocol Effectable {
+    var cells: [CAEmitterCell] { get }
+    var emitterLayer: CAEmitterLayer { get }
+}
+
+//MARK: - basic concepts of ParticleEffect
+private class ParticleEffect: Effect, Effectable {
     fileprivate unowned var background: CALayer!
     fileprivate var cells = [CAEmitterCell]()
     fileprivate var emitterLayer = CAEmitterLayer()
@@ -47,16 +54,6 @@ class ParticleEffect: Effect, Effectable {
     func run() {
         background.addSublayer(emitterLayer)
     }
-}
-
-
-
-//MARK: - Private types
-
-//MARK: - Definition about Effectable
-private protocol Effectable {
-    var cells: [CAEmitterCell] { get }
-    var emitterLayer: CAEmitterLayer { get }
 }
 
 //MARK: - Snow Effect
