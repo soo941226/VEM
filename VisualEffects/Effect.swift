@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol Readyable {
+public protocol Readyable {
     func ready(for view: UIView) -> Effect
 }
 
-protocol Runable {
+public protocol Runable {
     func run()
 }
 
-typealias Effect = Runable & Readyable
+public typealias Effect = Runable & Readyable
