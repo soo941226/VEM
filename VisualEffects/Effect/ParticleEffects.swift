@@ -9,6 +9,7 @@ import UIKit
 import CoreGraphics
 import QuartzCore
 
+//MARK: - public interface for particle effects
 public enum Particle {
     case withSnow
     case withBubble
@@ -23,11 +24,13 @@ public enum Particle {
     }
 }
 
+
 //MARK: - Definition about ParticleEffectable
 private protocol ParticleEffectable {
     var cells: [CAEmitterCell] { get }
     var emitterLayer: CAEmitterLayer { get }
 }
+
 
 //MARK: - basic concepts of ParticleEffect
 private class ParticleEffect: Effect, ParticleEffectable {
@@ -48,14 +51,21 @@ private class ParticleEffect: Effect, ParticleEffectable {
         block(emitterLayer)
     }
 
-    func run() {
+    func run() -> Stopable {
         background.addSublayer(emitterLayer)
+
+        return self
+    }
+
+    func stop() {
+        emitterLayer.lifetime = 0
     }
 }
 
+
 //MARK: - Snow Effect
 final private class SnowEffect: ParticleEffect {
-    override func run() {
+    override func run() -> Stopable {
         setUpCells {
             let cell = CAEmitterCell()
             cell.contents = UIImage(systemName: "snowflake")?.filled(with: .white)?.cgImage
@@ -73,7 +83,7 @@ final private class SnowEffect: ParticleEffect {
             cell.spinRange = 0.5
 
             cell.yAcceleration = 10
-            cell.xAcceleration = 10
+            cell.xAcceleration = 5
             cell.emissionRange = .pi
 
             return [cell]
@@ -86,9 +96,10 @@ final private class SnowEffect: ParticleEffect {
             layer.beginTime = CACurrentMediaTime()
         }
 
-        super.run()
+        return super.run()
     }
 }
+
 
 //MARK: - Bubble Effect
 final private class BubbleEffect: ParticleEffect {
@@ -155,7 +166,7 @@ final private class BubbleEffect: ParticleEffect {
     }
 
 
-    override func run() {
+    override func run() -> Stopable {
         setUpCells {
             let image = drawBubble()
 
@@ -171,8 +182,8 @@ final private class BubbleEffect: ParticleEffect {
             cell.velocity = 50
             cell.velocityRange = 20
 
-            cell.spin = 0.5
-            cell.spinRange = 0.5
+            cell.spin = 0.2
+            cell.spinRange = 0.8
 
             cell.yAcceleration = -15
             cell.xAcceleration = 10
@@ -191,6 +202,6 @@ final private class BubbleEffect: ParticleEffect {
             layer.beginTime = CACurrentMediaTime()
         }
 
-        super.run()
+        return super.run()
     }
 }

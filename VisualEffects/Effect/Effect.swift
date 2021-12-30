@@ -12,7 +12,11 @@ public protocol Readyable {
 }
 
 public protocol Runable {
-    func run()
+    func run() -> Stopable
 }
 
-public typealias Effect = Runable & Readyable
+public protocol Stopable {
+    func stop()
+}
+
+public typealias Effect = Runable & Readyable & Stopable
