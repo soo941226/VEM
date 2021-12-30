@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol Readyable {
-    func ready(for view: UIView) -> Effect
+    init(for view: UIView)
 }
 
 public protocol Runable {

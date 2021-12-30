@@ -9,33 +9,35 @@ import UIKit
 import CoreGraphics
 import QuartzCore
 
-enum Particle {
+public enum Particle {
     case withSnow
     case withBubble
 
     func ready(for view: UIView) -> Runable {
         switch self {
         case .withSnow:
-            return SnowEffect().ready(for: view)
+            return SnowEffect(for: view)
         case .withBubble:
-            return BubbleEffect().ready(for: view)
+            return BubbleEffect(for: view)
         }
     }
 }
 
-//MARK: - Definition about Effectable
-private protocol Effectable {
+//MARK: - Definition about ParticleEffectable
+private protocol ParticleEffectable {
     var cells: [CAEmitterCell] { get }
     var emitterLayer: CAEmitterLayer { get }
 }
 
 //MARK: - basic concepts of ParticleEffect
-private class ParticleEffect: Effect, Effectable {
+private class ParticleEffect: Effect, ParticleEffectable {
     fileprivate unowned var background: CALayer!
     fileprivate var cells = [CAEmitterCell]()
     fileprivate var emitterLayer = CAEmitterLayer()
 
-    fileprivate init() { }
+    required fileprivate init(for view: UIView) {
+        self.background = view.layer
+    }
 
     fileprivate func setUpCells(with block: () -> [CAEmitterCell]) {
         cells = block()
@@ -44,11 +46,6 @@ private class ParticleEffect: Effect, Effectable {
     fileprivate func setUpLayer(with block: (CAEmitterLayer) -> Void) {
         emitterLayer.emitterCells = cells
         block(emitterLayer)
-    }
-
-    func ready(for view: UIView) -> Effect {
-        self.background = view.layer
-        return self
     }
 
     func run() {
@@ -100,8 +97,7 @@ final private class BubbleEffect: ParticleEffect {
         let center = CGPoint(x: radius, y: radius)
         let circumference: CGFloat = 2 * .pi
         let quarterArc: CGFloat = .pi / 2
-        let basicMultiplier = 0.75
-
+        
         let defaultStrokeColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
         let defaultInnerColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
 
@@ -173,12 +169,12 @@ final private class BubbleEffect: ParticleEffect {
             cell.scaleRange = 0.3
 
             cell.velocity = 50
-            cell.velocityRange = 30
+            cell.velocityRange = 20
 
-            cell.spin = 1.0
-            cell.spinRange = 3.0
+            cell.spin = 0.5
+            cell.spinRange = 0.5
 
-            cell.yAcceleration = -30
+            cell.yAcceleration = -15
             cell.xAcceleration = 10
             cell.emissionRange = .pi
 

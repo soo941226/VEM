@@ -77,12 +77,13 @@
 			path = VisualEffectTestProject;
 			sourceTree = "<group>";
 		};
-		634954B327799EA900BFC2E2 /* ParticleEffects */ = {
+		634954B327799EA900BFC2E2 /* Effect */ = {
 			isa = PBXGroup;
 			children = (
+				634954B127799CDE00BFC2E2 /* Effect.swift */,
 				63D4D0B72770C29800A38448 /* ParticleEffects.swift */,
 			);
-			path = ParticleEffects;
+			path = Effect;
 			sourceTree = "<group>";
 		};
 		636576DE2779F485009C1149 /* UIImage+Extension */ = {
@@ -97,9 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				634954B62779A3C300BFC2E2 /* VisualEffect.swift */,
-				634954B127799CDE00BFC2E2 /* Effect.swift */,
 				636576DE2779F485009C1149 /* UIImage+Extension */,
-				634954B327799EA900BFC2E2 /* ParticleEffects */,
+				634954B327799EA900BFC2E2 /* Effect */,
 			);
 			name = VisualEffects;
 			path = ../VisualEffects;
