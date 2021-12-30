@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ReadyableEffect {
+protocol Readyable {
     func ready(for view: UIView) -> Effect
 }
 
-protocol RunableEffect {
+protocol Runable {
     func run()
 }
 
-typealias Effect = RunableEffect & ReadyableEffect
+typealias Effect = Runable & Readyable
