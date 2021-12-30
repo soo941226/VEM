@@ -85,7 +85,7 @@ final private class SnowEffect: ParticleEffect {
         setUpLayer { layer in
             layer.emitterPosition = CGPoint(x: background.bounds.width / 2.0, y: -100)
             layer.emitterSize = CGSize(width: background.bounds.width, height: 0)
-            layer.emitterShape = CAEmitterLayerEmitterShape.line
+            layer.emitterShape = .line
             layer.beginTime = CACurrentMediaTime()
         }
 
@@ -96,57 +96,61 @@ final private class SnowEffect: ParticleEffect {
 //MARK: - Bubble Effect
 final private class BubbleEffect: ParticleEffect {
     private func drawBubble() -> UIImage? {
-        let bubbleSize = CGSize(width: 80.0, height: 80.0)
-        UIGraphicsBeginImageContext(bubbleSize)
-
-        let context = UIGraphicsGetCurrentContext()
-        let radius = bubbleSize.width / 2
+        let radius = 40.0
         let center = CGPoint(x: radius, y: radius)
         let circumference: CGFloat = 2 * .pi
         let arc: CGFloat = .pi / 2
+        let basicMultiplier = 0.75
 
-        context?.setStrokeColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
-        context?.setFillColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
-        context?.beginPath()
+        let defaultStrokeColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
+        let defaultInnerColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
 
-        context?.addArc(
+        let bubbleSize = CGSize(width: radius * 2, height: radius * 2)
+        UIGraphicsBeginImageContext(bubbleSize)
+        let pen = UIGraphicsGetCurrentContext()
+
+        pen?.setStrokeColor(defaultStrokeColor)
+        pen?.setFillColor(defaultInnerColor)
+        pen?.beginPath()
+
+        pen?.addArc(
             center: center,
             radius: radius * 0.75,
             startAngle: arc,
             endAngle: .pi,
             clockwise: false
         )
-        context?.strokePath()
+        pen?.strokePath()
 
-        context?.addArc(
+        pen?.addArc(
             center: center,
             radius: radius * 0.7,
             startAngle: arc,
             endAngle: .pi,
             clockwise: false
         )
-        context?.strokePath()
+        pen?.strokePath()
 
-        context?.setLineWidth(2.0)
-        context?.addArc(
+        pen?.setLineWidth(2.0)
+        pen?.addArc(
             center: center,
             radius: radius,
             startAngle: 0,
             endAngle: circumference,
             clockwise: true
         )
-        context?.strokePath()
+        pen?.strokePath()
 
-        context?.addArc(
+        pen?.addArc(
             center: center,
             radius: radius,
             startAngle: 0,
             endAngle: circumference,
             clockwise: true
         )
-        context?.fillPath()
+        pen?.fillPath()
 
-        context?.closePath()
+        pen?.closePath()
 
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -184,10 +188,10 @@ final private class BubbleEffect: ParticleEffect {
         setUpLayer { layer in
             layer.emitterPosition = CGPoint(
                 x: background.bounds.width / 2.0,
-                y: background.bounds.height + 100
+                y: background.bounds.height + 50
             )
-            layer.emitterSize = CGSize(width: background.bounds.width, height: 0)
-            layer.emitterShape = CAEmitterLayerEmitterShape.line
+            layer.emitterSize = CGSize(width: background.bounds.width, height: .zero)
+            layer.emitterShape = .line
             layer.beginTime = CACurrentMediaTime()
         }
 
