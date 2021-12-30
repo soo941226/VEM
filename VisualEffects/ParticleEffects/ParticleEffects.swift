@@ -99,7 +99,7 @@ final private class BubbleEffect: ParticleEffect {
         let radius = 40.0
         let center = CGPoint(x: radius, y: radius)
         let circumference: CGFloat = 2 * .pi
-        let arc: CGFloat = .pi / 2
+        let quarterArc: CGFloat = .pi / 2
         let basicMultiplier = 0.75
 
         let defaultStrokeColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
@@ -116,7 +116,7 @@ final private class BubbleEffect: ParticleEffect {
         pen?.addArc(
             center: center,
             radius: radius * 0.75,
-            startAngle: arc,
+            startAngle: quarterArc,
             endAngle: .pi,
             clockwise: false
         )
@@ -125,7 +125,7 @@ final private class BubbleEffect: ParticleEffect {
         pen?.addArc(
             center: center,
             radius: radius * 0.7,
-            startAngle: arc,
+            startAngle: quarterArc,
             endAngle: .pi,
             clockwise: false
         )
