@@ -6,7 +6,7 @@
 //
 
 struct VisualEffects {
-    static let aboutParticle = Particle.self
+    static let byParticle = Particle.self
     
     private init() {}
 }

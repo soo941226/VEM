@@ -11,10 +11,14 @@ import QuartzCore
 
 enum Particle {
     case withSnow
-    func ready(for view: UIView) -> RunableEffect {
+    case withBubble
+
+    func ready(for view: UIView) -> Runable {
         switch self {
         case .withSnow:
             return SnowEffect().ready(for: view)
+        case .withBubble:
+            return BubbleEffect().ready(for: view)
         }
     }
 }
@@ -47,12 +51,15 @@ class ParticleEffect: Effect, Effectable {
 
 
 
-//MARK: - private things
+//MARK: - Private types
+
+//MARK: - Definition about Effectable
 private protocol Effectable {
     var cells: [CAEmitterCell] { get }
     var emitterLayer: CAEmitterLayer { get }
 }
 
+//MARK: - Snow Effect
 final private class SnowEffect: ParticleEffect {
     override func run() {
         setUpCells {
@@ -65,20 +72,20 @@ final private class SnowEffect: ParticleEffect {
             cell.scale = 0.4
             cell.scaleRange = 0.3
 
-            cell.velocity = -100
+            cell.velocity = -50
             cell.velocityRange = 50
 
-            cell.spin = 1.0
-            cell.spinRange = 3.0
+            cell.spin = 0
+            cell.spinRange = 0.5
 
-            cell.yAcceleration = 30
+            cell.yAcceleration = 10
             cell.xAcceleration = 10
             cell.emissionRange = .pi
 
             return [cell]
         }
 
-        setUpLayer { (layer: CAEmitterLayer) in
+        setUpLayer { layer in
             layer.emitterPosition = CGPoint(x: background.bounds.width / 2.0, y: -100)
             layer.emitterSize = CGSize(width: background.bounds.width, height: 0)
             layer.emitterShape = CAEmitterLayerEmitterShape.line
@@ -89,3 +96,104 @@ final private class SnowEffect: ParticleEffect {
     }
 }
 
+//MARK: - Bubble Effect
+final private class BubbleEffect: ParticleEffect {
+    private func drawBubble() -> UIImage? {
+        let bubbleSize = CGSize(width: 80.0, height: 80.0)
+        UIGraphicsBeginImageContext(bubbleSize)
+
+        let context = UIGraphicsGetCurrentContext()
+        let radius = bubbleSize.width / 2
+        let center = CGPoint(x: radius, y: radius)
+        let circumference: CGFloat = 2 * .pi
+        let arc: CGFloat = .pi / 2
+
+        context?.setStrokeColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.75)
+        context?.setFillColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
+        context?.beginPath()
+
+        context?.addArc(
+            center: center,
+            radius: radius * 0.75,
+            startAngle: arc,
+            endAngle: .pi,
+            clockwise: false
+        )
+        context?.strokePath()
+
+        context?.addArc(
+            center: center,
+            radius: radius * 0.7,
+            startAngle: arc,
+            endAngle: .pi,
+            clockwise: false
+        )
+        context?.strokePath()
+
+        context?.setLineWidth(2.0)
+        context?.addArc(
+            center: center,
+            radius: radius,
+            startAngle: 0,
+            endAngle: circumference,
+            clockwise: true
+        )
+        context?.strokePath()
+
+        context?.addArc(
+            center: center,
+            radius: radius,
+            startAngle: 0,
+            endAngle: circumference,
+            clockwise: true
+        )
+        context?.fillPath()
+
+        context?.closePath()
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+
+    override func run() {
+        setUpCells {
+            let image = drawBubble()
+
+            let cell = CAEmitterCell()
+            cell.contents = image?.cgImage
+
+            cell.lifetime = 20.0
+            cell.birthRate = 12.0
+
+            cell.scale = 0.4
+            cell.scaleRange = 0.3
+
+            cell.velocity = 50
+            cell.velocityRange = 30
+
+            cell.spin = 1.0
+            cell.spinRange = 3.0
+
+            cell.yAcceleration = -30
+            cell.xAcceleration = 10
+            cell.emissionRange = .pi
+
+            return [cell]
+        }
+
+        setUpLayer { layer in
+            layer.emitterPosition = CGPoint(
+                x: background.bounds.width / 2.0,
+                y: background.bounds.height + 100
+            )
+            layer.emitterSize = CGSize(width: background.bounds.width, height: 0)
+            layer.emitterShape = CAEmitterLayerEmitterShape.line
+            layer.beginTime = CACurrentMediaTime()
+        }
+
+        super.run()
+    }
+}
