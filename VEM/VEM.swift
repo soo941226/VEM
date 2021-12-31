@@ -6,7 +6,7 @@
 //
 
 public struct VEM {
-    static let byParticle = Particle.self
+    static let particle = Particle.self
     
     private init() {}
 }
