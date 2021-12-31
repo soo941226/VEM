@@ -15,7 +15,5 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.view.backgroundColor = .darkGray
-
-        VEM.byParticle.withBubble.ready(for: self.view).run()
     }
 }
