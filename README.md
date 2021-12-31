@@ -1,6 +1,7 @@
-# VisualEffects
+# VEM means Visual Effects Manager
 
 This project is in developing.
+
 
 &nbsp;
 
