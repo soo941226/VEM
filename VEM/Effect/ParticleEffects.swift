@@ -1,6 +1,6 @@
 //
-//  VisualEffects.swift
-//  VisualEffectTestProject
+//  VEM.swift
+//  VEMTestProject
 //
 //  Created by kjs on 2021/12/20.
 //
@@ -182,7 +182,6 @@ final private class BubbleEffect: ParticleEffect {
             bubble.velocity = 50
             bubble.velocityRange = 20
 
-            bubble.spin = 0.2
             bubble.spinRange = 0.2
 
             bubble.yAcceleration = -15

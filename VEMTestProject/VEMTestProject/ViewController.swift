@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  VisualEffectTestProject
+//  VEMTestProject
 //
 //  Created by kjs on 2021/12/20.
 //
@@ -16,6 +16,6 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         self.view.backgroundColor = .darkGray
 
-        VisualEffects.aboutParticle.withSnow.ready(for: self.view).run()
+        VEM.byParticle.withBubble.ready(for: self.view).run()
     }
 }
