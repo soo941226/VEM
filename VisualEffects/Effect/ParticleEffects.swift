@@ -67,26 +67,26 @@ private class ParticleEffect: Effect, ParticleEffectable {
 final private class SnowEffect: ParticleEffect {
     override func run() -> Stopable {
         setUpCells {
-            let cell = CAEmitterCell()
-            cell.contents = UIImage(systemName: "snowflake")?.filled(with: .white)?.cgImage
+            let snow = CAEmitterCell()
+            snow.contents = UIImage(systemName: "snowflake")?.filled(with: .white)?.cgImage
 
-            cell.lifetime = 20.0
-            cell.birthRate = 20.0
+            snow.lifetime = 20.0
+            snow.birthRate = 20.0
 
-            cell.scale = 0.4
-            cell.scaleRange = 0.3
+            snow.scale = 0.4
+            snow.scaleRange = 0.3
 
-            cell.velocity = -50
-            cell.velocityRange = 50
+            snow.velocity = -50
+            snow.velocityRange = 50
 
-            cell.spin = 0
-            cell.spinRange = 0.5
+            snow.spin = 0
+            snow.spinRange = 0.5
 
-            cell.yAcceleration = 10
-            cell.xAcceleration = 5
-            cell.emissionRange = .pi
+            snow.yAcceleration = 10
+            snow.xAcceleration = 5
+            snow.emissionRange = .pi
 
-            return [cell]
+            return [snow]
         }
 
         setUpLayer { layer in
@@ -170,26 +170,26 @@ final private class BubbleEffect: ParticleEffect {
         setUpCells {
             let image = drawBubble()
 
-            let cell = CAEmitterCell()
-            cell.contents = image?.cgImage
+            let bubble = CAEmitterCell()
+            bubble.contents = image?.cgImage
 
-            cell.lifetime = 20.0
-            cell.birthRate = 12.0
+            bubble.lifetime = 20.0
+            bubble.birthRate = 12.0
 
-            cell.scale = 0.4
-            cell.scaleRange = 0.3
+            bubble.scale = 0.4
+            bubble.scaleRange = 0.3
 
-            cell.velocity = 50
-            cell.velocityRange = 20
+            bubble.velocity = 50
+            bubble.velocityRange = 20
 
-            cell.spin = 0.2
-            cell.spinRange = 0.8
+            bubble.spin = 0.2
+            bubble.spinRange = 0.2
 
-            cell.yAcceleration = -15
-            cell.xAcceleration = 10
-            cell.emissionRange = .pi
+            bubble.yAcceleration = -15
+            bubble.xAcceleration = 10
+            bubble.emissionRange = .pi
 
-            return [cell]
+            return [bubble]
         }
 
         setUpLayer { layer in
