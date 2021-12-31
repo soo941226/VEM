@@ -5,7 +5,7 @@ This project is in developing.
 &nbsp;
 
 
-Visual Effects with Swift. It depends on CALayer through UIView. So you should use UIKit.
+Visual Effects with Swift for iOS. It depends on CALayer through UIView. So you should use UIKit.
 
 If you want to use this with SwiftUI, see below link
 
