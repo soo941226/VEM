@@ -147,5 +147,57 @@ final private class BubbleEffect: ParticleEffect {
 
 //MARK: - Balloon Effect
 final private class BalloonEffect: ParticleEffect {
-    
+    override func run() -> Stopable {
+        setUpCells {
+            var ballons = [CAEmitterCell]()
+            var colors = Set<Colors>()
+
+            let painter = Painter()
+
+            while colors.count <= 4 {
+                if let color = Colors.allCases.randomElement() {
+                    colors.insert(color)
+                }
+            }
+
+            for _ in 0...3 {
+                guard let color = colors.popFirst() else {
+                    continue
+                }
+
+                let image = painter.drawBallon(with: color)
+                let ballon = CAEmitterCell()
+                ballon.contents = image?.cgImage
+
+                ballon.lifetime = 20.0
+                ballon.birthRate = 0.5
+
+                ballon.scale = 0.8
+                ballon.scaleRange = 0.2
+
+                ballon.velocity = 20
+                ballon.velocityRange = 5
+
+                ballon.xAcceleration = 2
+                ballon.yAcceleration = -2
+                ballon.emissionRange = .pi
+
+                ballons.append(ballon)
+            }
+
+            return ballons
+        }
+
+        setUpLayer { layer in
+            layer.emitterPosition = CGPoint(
+                x: background.bounds.width / 2.0,
+                y: background.bounds.height + 50
+            )
+            layer.emitterSize = CGSize(width: background.bounds.width, height: .zero)
+            layer.emitterShape = .line
+            layer.beginTime = CACurrentMediaTime()
+        }
+
+        return super.run()
+    }
 }
