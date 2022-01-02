@@ -111,7 +111,7 @@ final private class BubbleEffect: ParticleEffect {
             let image = Painter().drawBubble()
 
             let bubble = CAEmitterCell()
-            bubble.contents = image?.cgImage
+            bubble.contents = image
 
             bubble.lifetime = 20.0
             bubble.birthRate = 12.0
@@ -167,7 +167,7 @@ final private class BalloonEffect: ParticleEffect {
 
                 let image = painter.drawBallon(with: color)
                 let ballon = CAEmitterCell()
-                ballon.contents = image?.cgImage
+                ballon.contents = image
 
                 ballon.lifetime = 20.0
                 ballon.birthRate = 0.5

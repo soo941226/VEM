@@ -8,7 +8,7 @@
 import UIKit
 
 class Painter {
-    func drawBubble() -> UIImage? {
+    func drawBubble() -> CGImage? {
         let defaultStrokeColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.65)
         let defaultInnerColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
 
@@ -44,7 +44,7 @@ class Painter {
        return createImage(from: pen)
     }
 
-    func drawBallon(with color: Colors) -> UIImage? {
+    func drawBallon(with color: Colors) -> CGImage? {
         let ballonRadius: CGFloat = 25.0
         let ballonSize = CGSize(width: 50, height: 100)
         let ballonCenter = CGPoint(x: ballonRadius, y: ballonRadius)
@@ -100,9 +100,9 @@ private extension Painter {
         return context
     }
 
-    func createImage(from context: CGContext?) -> UIImage? {
+    func createImage(from context: CGContext?) -> CGImage? {
         context?.closePath()
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = context?.makeImage()
         UIGraphicsEndImageContext()
         return image
     }
