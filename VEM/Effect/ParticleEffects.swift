@@ -79,14 +79,14 @@ final private class SnowEffect: ParticleEffect {
             snow.scale = 0.4
             snow.scaleRange = 0.3
 
-            snow.velocity = -50
-            snow.velocityRange = 50
+            snow.velocity = -50.0
+            snow.velocityRange = 50.0
 
             snow.spin = 0
             snow.spinRange = 0.5
 
-            snow.yAcceleration = 10
-            snow.xAcceleration = 5
+            snow.yAcceleration = 10.0
+            snow.xAcceleration = 5.0
             snow.emissionRange = .pi
 
             return [snow]
@@ -119,13 +119,13 @@ final private class BubbleEffect: ParticleEffect {
             bubble.scale = 0.4
             bubble.scaleRange = 0.3
 
-            bubble.velocity = 50
-            bubble.velocityRange = 20
+            bubble.velocity = 50.0
+            bubble.velocityRange = 20.0
 
             bubble.spinRange = 0.2
 
-            bubble.yAcceleration = -15
-            bubble.xAcceleration = 10
+            bubble.yAcceleration = -15.0
+            bubble.xAcceleration = 10.0
             bubble.emissionRange = .pi
 
             return [bubble]
@@ -150,36 +150,26 @@ final private class BalloonEffect: ParticleEffect {
     override func run() -> Stopable {
         setUpCells {
             var ballons = [CAEmitterCell]()
-            var colors = Set<Colors>()
 
             let painter = Painter()
+            let colors = Colors.allCases
 
-            while colors.count <= 4 {
-                if let color = Colors.allCases.randomElement() {
-                    colors.insert(color)
-                }
-            }
-
-            for _ in 0...3 {
-                guard let color = colors.popFirst() else {
-                    continue
-                }
-
+            for color in colors {
                 let image = painter.drawBallon(with: color)
                 let ballon = CAEmitterCell()
                 ballon.contents = image
 
-                ballon.lifetime = 20.0
-                ballon.birthRate = 0.5
+                ballon.lifetime = 10.0
+                ballon.birthRate = 0.4
 
                 ballon.scale = 0.8
                 ballon.scaleRange = 0.2
 
-                ballon.velocity = 20
-                ballon.velocityRange = 5
+                ballon.velocity = 20.0
+                ballon.velocityRange = 5.0
 
-                ballon.xAcceleration = 2
-                ballon.yAcceleration = -2
+                ballon.xAcceleration = 1.0
+                ballon.yAcceleration = -15.0
                 ballon.emissionRange = .pi
 
                 ballons.append(ballon)
