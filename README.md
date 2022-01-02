@@ -25,4 +25,4 @@ If you want to use this with SwiftUI, see below link
 ![Bubble](https://user-images.githubusercontent.com/83933153/147749167-0e6367d8-565d-4a38-8230-7b2f88d8d632.gif)
 
 ### C. Balloon effect
-![Ballon](https://user-images.githubusercontent.com/83933153/147880071-60fa845f-ec92-4e34-b974-83780ec1fdc5.gif)
+![Ballon](https://user-images.githubusercontent.com/83933153/147886296-1e632038-a34f-4bf6-a5bc-151aad4faf7f.gif)
