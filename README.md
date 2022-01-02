@@ -19,7 +19,10 @@ If you want to use this with SwiftUI, see below link
 ## Particle Effects
 
 ### A. Snow effect
-![Simulator Screen Recording - iPod touch (7th generation) - 2021-12-30 at 20 40 10](https://user-images.githubusercontent.com/83933153/147749165-98f3e2b5-2989-4d78-a212-c9f44e63a0af.gif)  
+![Snow](https://user-images.githubusercontent.com/83933153/147749165-98f3e2b5-2989-4d78-a212-c9f44e63a0af.gif)  
 
-### B. Bubble effefct
-![Simulator Screen Recording - iPod touch (7th generation) - 2021-12-30 at 20 44 23](https://user-images.githubusercontent.com/83933153/147749167-0e6367d8-565d-4a38-8230-7b2f88d8d632.gif)
+### B. Bubble effect
+![Bubble](https://user-images.githubusercontent.com/83933153/147749167-0e6367d8-565d-4a38-8230-7b2f88d8d632.gif)
+
+### C. Balloon effect
+![Ballon](https://user-images.githubusercontent.com/83933153/147880071-60fa845f-ec92-4e34-b974-83780ec1fdc5.gif)
