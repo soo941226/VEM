@@ -13,6 +13,7 @@ import QuartzCore
 public enum Particle {
     case withSnow
     case withBubble
+    case withBallon
 
     func ready(for view: UIView) -> Runable {
         switch self {
@@ -20,6 +21,8 @@ public enum Particle {
             return SnowEffect(for: view)
         case .withBubble:
             return BubbleEffect(for: view)
+        case .withBallon:
+            return BalloonEffect(for: view)
         }
     }
 }
@@ -140,4 +143,9 @@ final private class BubbleEffect: ParticleEffect {
 
         return super.run()
     }
+}
+
+//MARK: - Balloon Effect
+final private class BalloonEffect: ParticleEffect {
+    
 }
