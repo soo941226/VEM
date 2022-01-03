@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Painter {
+struct Painter {
     func drawBubble() -> CGImage? {
         let defaultStrokeColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.65)
         let defaultInnerColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
@@ -112,37 +112,25 @@ private extension Painter {
 //MARK: - private extension of CGContext
 private extension CGContext {
     func strokeArc(
-        center: CGPoint,
-        radius: CGFloat,
-        startAngle: CGFloat,
-        endAngle: CGFloat,
-        clockwise: Bool
+        center: CGPoint, radius: CGFloat,
+        startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool
     ) {
         addArc(
-            center: center,
-            radius: radius,
-            startAngle: startAngle,
-            endAngle: endAngle,
-            clockwise: clockwise
+            center: center, radius: radius,
+            startAngle: startAngle, endAngle: endAngle, clockwise: clockwise
         )
         strokePath()
     }
 
     func fillArc(
-        center: CGPoint,
-        radius: CGFloat,
-        startAngle: CGFloat,
-        endAngle: CGFloat,
-        clockwise: Bool,
+        center: CGPoint, radius: CGFloat,
+        startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool,
         color: CGColor
     ) {
         setFillColor(color)
         addArc(
-            center: center,
-            radius: radius,
-            startAngle: startAngle,
-            endAngle: endAngle,
-            clockwise: clockwise
+            center: center, radius: radius,
+            startAngle: startAngle, endAngle: endAngle, clockwise: clockwise
         )
         fillPath()
     }
