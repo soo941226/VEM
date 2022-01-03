@@ -1,5 +1,5 @@
 //
-//  Effect.swift
+//  Effectable.swift
 //  VEMTestProject
 //
 //  Created by kjs on 2021/12/27.
@@ -19,4 +19,4 @@ public protocol Stopable {
     func stop()
 }
 
-public typealias Effect = Runable & Readyable & Stopable
+public typealias Effectable = Runable & Readyable & Stopable
