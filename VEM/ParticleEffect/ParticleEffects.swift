@@ -13,7 +13,12 @@ import QuartzCore
 internal class ParticleEffect: Effectable {
     unowned var background: CALayer!
     var cells = [CAEmitterCell]()
-    var emitterLayer = CAEmitterLayer()
+    var emitterLayer: CAEmitterLayer = {
+        let layer = CAEmitterLayer()
+        layer.shouldRasterize = true
+        layer.drawsAsynchronously = true
+        return layer
+    }()
 
     required init(for view: UIView) {
         self.background = view.layer
