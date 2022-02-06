@@ -1,42 +1,12 @@
-#
-# Be sure to run `pod lib lint VEM.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
-Pod::Spec.new do |s|
-  s.name             = 'VEM'
-  s.version          = '0.1.0'
-  s.summary          = 'Visual effects manager'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/soo941226/VEM'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'soo941226' => '83933153+soo941226@users.noreply.github.com' }
-  s.source           = { :git => 'https://github.com/soo941226/VEM.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '13.0'
-
-  s.source_files = 'Core/**/*'
-  
-  # s.resource_bundles = {
-  #   'VEM' => ['VEM/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+Pod::Spec.new do |project|
+  project.name             = 'VEM'
+  project.version          = '0.1.0'
+  project.summary          = 'Visual effects manager'
+  project.swift_versions   = '5.5'
+  project.homepage         = 'https://github.com/soo941226/VEM'
+  project.license          = { :type => 'MIT', :file => 'LICENSE' }
+  project.author           = { 'soo941226' => '83933153+soo941226@users.noreply.github.com' }
+  project.source           = { :git => 'https://github.com/soo941226/VEM.git', :tag => spec.version.to_s }
+  project.ios.deployment_target = '13.0'
+  project.source_files = 'Core/**/*'
 end
