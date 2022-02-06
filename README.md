@@ -13,6 +13,16 @@ This project is in developing.
 &nbsp;
 
 
+Visual Effects with Swift for iOS. It depends on CALayer through UIView. So you should use UIKit.
+
+If you want to use this with SwiftUI, see below link
+
+[UIViewRepresentable](https://developer.apple.com/documentation/swiftui/uiviewrepresentable)
+
+
+&nbsp;
+
+
 ## Installation
 
 VEM is available through [CocoaPods](https://cocoapods.org). To install
@@ -21,16 +31,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'VEM'
 ```
-
-
-&nbsp;
-
-
-Visual Effects with Swift for iOS. It depends on CALayer through UIView. So you should use UIKit.
-
-If you want to use this with SwiftUI, see below link
-
-[UIViewRepresentable](https://developer.apple.com/documentation/swiftui/uiviewrepresentable)
 
 
 &nbsp;
