@@ -1,6 +1,26 @@
 # VEM means Visual Effects Manager
 
+
+[![CI Status](https://img.shields.io/travis/soo941226/VEM.svg?style=flat)](https://travis-ci.org/soo941226/VEM)
+[![Version](https://img.shields.io/cocoapods/v/VEM.svg?style=flat)](https://cocoapods.org/pods/VEM)
+[![License](https://img.shields.io/cocoapods/l/VEM.svg?style=flat)](https://cocoapods.org/pods/VEM)
+[![Platform](https://img.shields.io/cocoapods/p/VEM.svg?style=flat)](https://cocoapods.org/pods/VEM)
+
+
 This project is in developing.
+
+
+&nbsp;
+
+
+## Installation
+
+VEM is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'VEM'
+```
 
 
 &nbsp;
