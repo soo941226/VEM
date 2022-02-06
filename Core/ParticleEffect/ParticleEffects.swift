@@ -12,6 +12,7 @@ import QuartzCore
 //MARK: - basic concepts of ParticleEffect
 internal class ParticleEffect: Effectable {
     unowned var background: CALayer!
+    var marginToDeleteAfterStop = TimeInterval.zero
     var cells = [CAEmitterCell]()
     var emitterLayer: CAEmitterLayer = {
         let layer = CAEmitterLayer()
