@@ -7,7 +7,7 @@
 
 #if os(iOS)
 public struct VEM {
-    static let particle = Particle.self
+    public static let particle = Particle.self
     
     private init() {}
 }
