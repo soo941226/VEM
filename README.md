@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/VEM.svg?style=flat)](https://cocoapods.org/pods/VEM)
 [![License](https://img.shields.io/cocoapods/l/VEM.svg?style=flat)](https://cocoapods.org/pods/VEM)
 [![Platform](https://img.shields.io/cocoapods/p/VEM.svg?style=flat)](https://cocoapods.org/pods/VEM)
-
+[![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat)](https://swift.org/package-manager/)
 
 This project is in developing.
 
