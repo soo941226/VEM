@@ -17,6 +17,6 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         self.view.layer.backgroundColor = UIColor.darkGray.cgColor
 
-        VEM.particle.withBallon.ready(for: self.view).run()
+        VEM.particle.withSnow.ready(for: self.view).run()
     }
 }

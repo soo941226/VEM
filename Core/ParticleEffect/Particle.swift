@@ -5,7 +5,8 @@
 //  Created by kjs on 2022/01/03.
 //
 
-import UIKit.UIView
+#if os(iOS)
+import UIKit
 
 //MARK: - public interface for particle effects
 public enum Particle {
@@ -24,3 +25,4 @@ public enum Particle {
         }
     }
 }
+#endif

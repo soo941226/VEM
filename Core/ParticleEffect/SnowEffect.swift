@@ -5,6 +5,7 @@
 //  Created by kjs on 2022/01/03.
 //
 
+#if os(iOS)
 import UIKit
 
 internal final class SnowEffect: ParticleEffect {
@@ -42,3 +43,4 @@ internal final class SnowEffect: ParticleEffect {
         return super.run()
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by kjs on 2022/01/03.
 //
 
+#if os(iOS)
 import UIKit
 
 internal final class BalloonEffect: ParticleEffect {
@@ -52,3 +53,4 @@ internal final class BalloonEffect: ParticleEffect {
         return super.run()
     }
 }
+#endif

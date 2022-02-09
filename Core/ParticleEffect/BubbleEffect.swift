@@ -5,6 +5,7 @@
 //  Created by kjs on 2022/01/03.
 //
 
+#if os(iOS)
 import UIKit
 
 internal final class BubbleEffect: ParticleEffect {
@@ -46,4 +47,4 @@ internal final class BubbleEffect: ParticleEffect {
         return super.run()
     }
 }
-
+#endif

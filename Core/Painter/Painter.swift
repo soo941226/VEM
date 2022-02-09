@@ -5,6 +5,7 @@
 //  Created by kjs on 2022/01/02.
 //
 
+#if os(iOS)
 import UIKit
 
 struct Painter {
@@ -147,3 +148,4 @@ private extension CGFloat {
         return .pi / 2
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by kjs on 2021/12/27.
 //
 
+#if os(iOS)
 import UIKit
 
 public protocol Readyable {
@@ -21,3 +22,4 @@ public protocol Stopable {
 }
 
 public typealias Effectable = Runable & Readyable & Stopable
+#endif

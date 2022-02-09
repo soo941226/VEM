@@ -5,6 +5,7 @@
 //  Created by kjs on 2021/12/20.
 //
 
+#if os(iOS)
 import UIKit
 import CoreGraphics
 import QuartzCore
@@ -47,3 +48,4 @@ internal extension ParticleEffect {
         block(emitterLayer)
     }
 }
+#endif
