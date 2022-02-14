@@ -14,7 +14,7 @@ public enum Particle {
     case withBubble
     case withBallon
 
-    func ready(for view: UIView) -> Runable {
+    public func ready(for view: UIView) -> Runable {
         switch self {
         case .withSnow:
             return SnowEffect(for: view)
