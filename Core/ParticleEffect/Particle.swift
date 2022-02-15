@@ -13,6 +13,7 @@ public enum Particle {
     case withSnow
     case withBubble
     case withBallon
+    case withMatrix(text: [String])
 
     public func ready(for view: UIView) -> Runable {
         switch self {
@@ -22,6 +23,10 @@ public enum Particle {
             return BubbleEffect(for: view)
         case .withBallon:
             return BalloonEffect(for: view)
+        case .withMatrix(let strings):
+            let matrixEffect = MatrixEffect(for: view)
+            matrixEffect.ready(with: strings)
+            return matrixEffect
         }
     }
 }
