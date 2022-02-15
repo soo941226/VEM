@@ -7,8 +7,6 @@
 
 #if os(iOS)
 import UIKit
-import CoreGraphics
-import QuartzCore
 
 //MARK: - basic concepts of ParticleEffect
 internal class ParticleEffect: Effectable {
