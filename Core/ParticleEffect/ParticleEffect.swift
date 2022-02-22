@@ -30,8 +30,21 @@ internal class ParticleEffect: Effectable {
         return self
     }
 
-    func stop() {
-        emitterLayer.lifetime = 0
+    func stop(immediately: Bool) {
+        if immediately {
+            emitterLayer.removeFromSuperlayer()
+            return
+        }
+
+        emitterLayer.lifetime = .zero
+        
+        DispatchQueue
+            .global()
+            .asyncAfter(deadline: .now() + marginToDeleteAfterStop) {
+                DispatchQueue.main.async {
+                    self.emitterLayer.removeFromSuperlayer()
+                }
+            }
     }
 }
 
