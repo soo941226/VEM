@@ -9,30 +9,29 @@
 import UIKit
 
 internal final class BalloonEffect: ParticleEffect {
+    required init(for view: UIView) {
+        super.init(for: view)
+        marginToDeleteAfterStop = 8.0
+    }
+
     override func run() -> Stopable {
         setUpCells {
             var ballons = [CAEmitterCell]()
-
-            let painter = Painter()
             let colors = Colors.allCases
 
             for color in colors {
-                let image = painter.drawBallon(with: color)
+                let image = drawBallon(with: color)
                 let ballon = CAEmitterCell()
                 ballon.contents = image
 
-                ballon.lifetime = 10.0
-                ballon.birthRate = 0.4
+                ballon.lifetime = 15.0
+                ballon.birthRate = 1.0
 
                 ballon.scale = 0.8
                 ballon.scaleRange = 0.2
 
-                ballon.velocity = 20.0
-                ballon.velocityRange = 5.0
-
-                ballon.xAcceleration = 1.0
-                ballon.yAcceleration = -15.0
-                ballon.emissionRange = .pi
+                ballon.velocity = 100.0
+                ballon.emissionRange = .quarterArc
 
                 ballons.append(ballon)
             }
@@ -52,5 +51,48 @@ internal final class BalloonEffect: ParticleEffect {
 
         return super.run()
     }
+    
+    private func drawBallon(with color: Colors) -> CGImage? {
+        let ballonRadius: CGFloat = 25.0
+        let ballonSize = CGSize(width: 50, height: 100)
+        let ballonCenter = CGPoint(x: ballonRadius, y: ballonRadius)
+
+        let fillAlpha: CGFloat = 0.5
+        let strokeAlpha: CGFloat = 0.35
+        let ballonColor = color.cgColor(alpha: fillAlpha)
+        let strokeColor = color.cgColor(alpha: strokeAlpha)
+
+        var painter = Painter(with: ballonSize)
+
+        painter.fillArc(
+            center: ballonCenter, radius: ballonRadius,
+            startAngle: .zero, endAngle: .circumference, clockwise: true,
+            color: ballonColor
+        )
+
+        painter.setStrokeColor(with: Colors.white.cgColor(alpha: strokeAlpha))
+        painter.strokeArc(
+            center: ballonCenter, radius: ballonRadius * 0.75,
+            startAngle: .quarterArc, endAngle: .pi, clockwise: false
+        )
+
+        painter.strokeArc(
+            center: ballonCenter, radius: ballonRadius * 0.7,
+            startAngle: .quarterArc, endAngle: .pi, clockwise: false
+        )
+
+        let stringRadius = ballonRadius / 3
+        let dividedHeight = ballonSize.height / 2
+        let startPointOfString = CGPoint(x: ballonRadius, y: ballonRadius + stringRadius * 2)
+        let controlPointOfString = CGPoint(x: ballonRadius, y: dividedHeight + ballonRadius)
+        let endPointOfString = CGPoint(x: .zero , y: ballonSize.height)
+
+        painter.setStrokeColor(with: strokeColor)
+        painter.move(to: startPointOfString)
+        painter.strokeBezier(to: endPointOfString, curveAt: controlPointOfString)
+
+        return painter.cgImage()
+    }
+
 }
 #endif

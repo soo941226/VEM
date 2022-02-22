@@ -9,6 +9,10 @@
 import UIKit
 
 final class MatrixEffect: ParticleEffect {
+    required init(for view: UIView) {
+        super.init(for: view)
+        marginToDeleteAfterStop = 5.0
+    }
 
     func ready(with strings: [String]) {
         setUpCells {

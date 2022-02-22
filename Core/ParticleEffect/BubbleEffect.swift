@@ -9,9 +9,14 @@
 import UIKit
 
 internal final class BubbleEffect: ParticleEffect {
+    required init(for view: UIView) {
+        super.init(for: view)
+        marginToDeleteAfterStop = 10.0
+    }
+
     override func run() -> Stopable {
         setUpCells {
-            let image = Painter().drawBubble()
+            let image = drawBubble()
 
             let bubble = CAEmitterCell()
             bubble.contents = image
@@ -46,5 +51,43 @@ internal final class BubbleEffect: ParticleEffect {
 
         return super.run()
     }
+
+    private func drawBubble() -> CGImage? {
+        let defaultStrokeColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.65)
+        let defaultInnerColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 0.15)
+
+        let radius: CGFloat = 40.0
+        let center = CGPoint(x: radius, y: radius)
+        let bubbleSize = CGSize(width: radius * 2, height: radius * 2)
+
+        var painter = Painter(with: bubbleSize)
+
+        painter.setStrokeColor(with: defaultStrokeColor)
+
+        painter.strokeArc(
+            center: center, radius: radius * 0.75,
+            startAngle: .quarterArc, endAngle: .pi, clockwise: false
+        )
+
+        painter.strokeArc(
+            center: center, radius: radius * 0.7,
+            startAngle: .quarterArc, endAngle: .pi, clockwise: false
+        )
+
+        painter.setLineWidth(with: 2.0)
+        painter.strokeArc(
+            center: center, radius: radius,
+            startAngle: 0, endAngle: .circumference, clockwise: true
+        )
+
+        painter.fillArc(
+            center: center, radius: radius,
+            startAngle: 0, endAngle: .circumference, clockwise: true,
+            color: defaultInnerColor
+        )
+
+        return painter.cgImage()
+    }
+
 }
 #endif

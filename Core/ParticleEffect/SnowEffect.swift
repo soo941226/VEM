@@ -9,6 +9,11 @@
 import UIKit
 
 internal final class SnowEffect: ParticleEffect {
+    required init(for view: UIView) {
+        super.init(for: view)
+        marginToDeleteAfterStop = 10.0
+    }
+    
     override func run() -> Stopable {
         setUpCells {
             let snow = CAEmitterCell()
