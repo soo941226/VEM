@@ -18,7 +18,7 @@ public protocol Runable {
 
 public protocol Stopable {
     var marginToDeleteAfterStop: TimeInterval { get set }
-    func stop()
+    func stop(immediately: Bool)
 }
 
 public typealias Effectable = Runable & Readyable & Stopable
